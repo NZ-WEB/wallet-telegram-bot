@@ -3,7 +3,8 @@ require("dotenv").config();
 
 import { Money, Currencies } from "ts-money";
 import axios from "axios";
-import Wallet from "./commands/wallet/wallet";
+import Wallet from "./core/wallet/wallet";
+import CommandBuilder from "./commands/commandBuilder/command.builder";
 /**
  * TELEGRAM_BOT_TOKEN
  * Can find in .env file
@@ -19,6 +20,8 @@ wallet.setInitWallet("RUB", 1000);
 wallet.addWallet("RUB", 1000);
 
 console.log(wallet);
+
+new CommandBuilder(bot).build();
 
 bot.launch();
 
