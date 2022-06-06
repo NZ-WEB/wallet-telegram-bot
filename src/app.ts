@@ -1,28 +1,19 @@
-import { Markup, Telegraf } from "telegraf";
-require("dotenv").config();
-
-import { Money, Currencies } from "ts-money";
-import axios from "axios";
-import Wallet from "./core/wallet/wallet";
 import CommandBuilder from "./commands/commandBuilder/command.builder";
-/**
- * TELEGRAM_BOT_TOKEN
- * Can find in .env file
- */
-const TELEGRAM_BOT_TOKEN: string = process.env.TELEGRAM_BOT_TOKEN!;
-const CURRENCY_ACCESS_KEY: string = process.env.CURRENCY_ACCESS_KEY!;
-const bot = new Telegraf(TELEGRAM_BOT_TOKEN);
+import { MyContext } from "./core/context/MyContext,interface";
+import { stage } from "./core/scenes";
 
-bot.use(Telegraf.log());
+require("dotenv").config();
+const { Telegraf, session } = require("telegraf");
 
-const wallet = Wallet.getInstance();
-wallet.setInitWallet("RUB", 1000);
-wallet.addWallet("RUB", 1000);
+const token: string = process.env.TELEGRAM_BOT_TOKEN!;
+if (token === undefined) {
+  throw new Error("BOT_TOKEN must be provided!");
+}
 
-console.log(wallet);
+const bot = new Telegraf(token);
 
+bot.use(session(), stage.middleware());
 new CommandBuilder(bot).build();
-
 bot.launch();
 
 // Enable graceful stop

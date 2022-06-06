@@ -3,6 +3,7 @@ import { IWallet } from "./wallet.interface";
 export default class Wallet {
   private static instance: Wallet;
   public wallet: IWallet[] = [];
+  public active: string = "";
 
   public static getInstance(): Wallet {
     if (!Wallet.instance) {
@@ -28,5 +29,13 @@ export default class Wallet {
     } else {
       this.wallet.push({ amount, currency });
     }
+  }
+
+  public setActive(currency: string) {
+    this.active = currency.toUpperCase();
+  }
+
+  public getActive(): string {
+    return this.active;
   }
 }
