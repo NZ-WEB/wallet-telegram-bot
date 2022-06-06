@@ -1,0 +1,30 @@
+{
+  "name": "currency",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.40",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "telegraf": "^4.8.3",
+    "ts-money": "^0.4.7"
+  }
+}
