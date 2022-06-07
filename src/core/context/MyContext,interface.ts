@@ -1,5 +1,5 @@
 import { Context, Scenes } from "telegraf";
-import { MySceneSession } from "../scenes/MySceneSession.interface";
+import { MySceneSession } from "../scenes/types/MySceneSession.interface";
 import { MySession } from "../sessions/MySession.interface";
 
 export interface MyContext extends Context {

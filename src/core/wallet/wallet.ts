@@ -24,7 +24,7 @@ export default class Wallet {
   }
 
   public addWallet(currency: string, amount: number): void {
-    if (currency === this.wallet[0].currency) {
+    if (this.wallet.length && currency === this.wallet[0].currency) {
       this.wallet[0].amount += amount;
     } else {
       this.wallet.push({ amount, currency });
@@ -37,5 +37,9 @@ export default class Wallet {
 
   public getActive(): string {
     return this.active;
+  }
+
+  public clear(): void {
+    this.wallet = [];
   }
 }

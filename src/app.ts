@@ -1,5 +1,4 @@
 import CommandBuilder from "./commands/commandBuilder/command.builder";
-import { MyContext } from "./core/context/MyContext,interface";
 import { stage } from "./core/scenes";
 
 require("dotenv").config();
@@ -12,9 +11,7 @@ if (token === undefined) {
 
 const bot = new Telegraf(token);
 
-bot.use(session(), stage.middleware());
 new CommandBuilder(bot).build();
-bot.launch();
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
