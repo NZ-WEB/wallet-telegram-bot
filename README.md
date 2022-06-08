@@ -11,6 +11,7 @@ npm run dev
 
 ## Arch tree:
 ```
+
 ├── environument.d.ts
 ├── package.json
 ├── package-lock.json
@@ -20,8 +21,8 @@ npm run dev
 │   ├── commands
 │   │   ├── commandBuilder
 │   │   │   └── command.builder.ts
-│   │   ├── info
-│   │   │   └── info.command.ts
+│   │   ├── preStart
+│   │   │   └── preStart.command.ts
 │   │   ├── start
 │   │   │   └── start.command.ts
 │   │   └── wallet
@@ -29,14 +30,11 @@ npm run dev
 │   │       └── getWallet.command.ts
 │   └── core
 │       ├── context
-│       │   ├── IWalletContext.ts
-│       │   └── MyContext,interface.ts
+│       │   └── IWalletContext.ts
 │       ├── keyboards
 │       │   └── keyboards.ts
 │       ├── scenes
-│       │   ├── ageScene.ts
 │       │   ├── index.ts
-│       │   ├── nameScene.ts
 │       │   ├── startController
 │       │   │   └── startController.scene.ts
 │       │   ├── types
@@ -46,12 +44,12 @@ npm run dev
 │       │       ├── amount.scene.ts
 │       │       └── currency.scene.ts
 │       ├── sessions
-│       │   ├── IWalletSession.ts
-│       │   └── MySession.interface.ts
+│       │   └── IWalletSession.ts
 │       └── wallet
 │           ├── wallet.interface.ts
 │           └── wallet.ts
 ├── tree.txt
 └── tsconfig.json
 
-15 directories, 27 files
+15 directories, 23 files
+
