@@ -6,7 +6,7 @@ export const startController = new Scenes.BaseScene<IWalletContext>(
 );
 startController.enter((ctx) =>
   ctx.reply(
-    "Привет! Я - бот копилка. Нажми кнопки для отображение/добавления финансов",
+    "Нажми кнопки для отображения/добавления финансов",
     Markup.keyboard([
       Markup.button.callback("/show", "SHOW"),
       Markup.button.callback("/add", "ADD"),
