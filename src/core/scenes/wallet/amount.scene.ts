@@ -23,4 +23,4 @@ amountScene.on("text", (ctx) => {
 
   return ctx.scene.leave();
 });
-amountScene.leave((ctx) => ctx.reply("Успешно завершено"));
+amountScene.leave((ctx) => ctx.scene.enter("startController"));

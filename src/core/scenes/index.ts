@@ -1,7 +1,12 @@
 import { Scenes } from "telegraf";
-import { MyContext } from "../context/MyContext,interface";
-import { ageScene } from "./ageScene";
-import { nameScene } from "./nameScene";
+import { IWalletContext } from "../context/IWalletContext";
+import { currencyScene } from "./wallet/currency.scene";
+import { amountScene } from "./wallet/amount.scene";
+import { startController } from "./startController/startController.scene";
 
-export const stage = new Scenes.Stage<MyContext>([nameScene, ageScene]);
+export const stage = new Scenes.Stage<IWalletContext>([
+  currencyScene,
+  amountScene,
+  startController,
+]);
 stage.hears("exit", (ctx) => ctx.scene.leave());

@@ -11,4 +11,4 @@ currencyScene.enter((ctx) =>
 currencyScene.on("text", (ctx) => {
   return ctx.scene.enter("amountScene", { currency: ctx.message.text });
 });
-currencyScene.leave((ctx) => ctx.reply("Следующий вопрос"));
+currencyScene.leave((ctx) => ctx.scene.enter("startController"));
