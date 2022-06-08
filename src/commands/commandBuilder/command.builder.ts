@@ -4,9 +4,14 @@ import AddWalletCommand from "../wallet/addWallet.command";
 import { IWalletContext } from "../../core/context/IWalletContext";
 import GetWalletCommand from "../wallet/getWallet.command";
 import { stage } from "../../core/scenes";
+import PreStartCommand from "../preStart/preStart.command";
 
 export default class CommandBuilder {
   constructor(private bot: Telegraf<IWalletContext>) {}
+
+  private preStart(title: string): void {
+    new PreStartCommand(this.bot).command(title);
+  }
 
   private start(name: string, scemeName: string): void {
     new StartCommand(this.bot).command(name, scemeName);
@@ -31,7 +36,10 @@ export default class CommandBuilder {
   build() {
     this.useStage();
 
-    this.start("start", "startController");
+    this.preStart(
+      "Привет! Я - бот/копилка! Здесь ты можешь добавить в меня деньги в разной валюте и посмотреть результат. Напиши '/begin' для начала"
+    );
+    this.start("begin", "startController");
     this.walletAdd("add", "currencyScene");
     this.showWallet("show");
 

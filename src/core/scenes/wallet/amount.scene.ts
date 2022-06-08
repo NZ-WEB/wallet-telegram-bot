@@ -1,11 +1,11 @@
 import { Scenes } from "telegraf";
-import { exit_keyboard, remove_Keyboard } from "../../keyboards/keyboards";
+import { price_keyboard, remove_Keyboard } from "../../keyboards/keyboards";
 import { IWalletContext } from "../../context/IWalletContext";
 import Wallet from "../../wallet/wallet";
 
 export const amountScene = new Scenes.BaseScene<IWalletContext>("amountScene");
 amountScene.enter((ctx) =>
-  ctx.reply("Сколько вы хотите добавить", exit_keyboard)
+  ctx.reply("Сколько вы хотите добавить", price_keyboard)
 );
 amountScene.on("text", (ctx) => {
   ctx.session.amount = parseInt(ctx.message.text);
