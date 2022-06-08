@@ -1,4 +1,4 @@
-import { Telegraf } from "telegraf";
+import { session, Telegraf } from "telegraf";
 import StartCommand from "../start/start.command";
 import AddWalletCommand from "../wallet/addWallet.command";
 import { IWalletContext } from "../../core/context/IWalletContext";
