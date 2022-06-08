@@ -13,4 +13,3 @@ startController.enter((ctx) =>
     ])
   )
 );
-startController.leave((ctx) => ctx.reply("Следующий вопрос"));

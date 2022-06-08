@@ -7,4 +7,6 @@ export const action_keyboard = (currencys: string[]) =>
 
 export const exit_keyboard = Markup.keyboard(["exit"]).oneTime();
 
+export const begin_keyboard = Markup.keyboard(["/begin"]).oneTime();
+
 export const remove_Keyboard = Markup.removeKeyboard();
