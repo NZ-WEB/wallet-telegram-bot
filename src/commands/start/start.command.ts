@@ -1,13 +1,17 @@
-import { Telegraf } from "telegraf";
-import { MyContext } from "../../core/context/MyContext,interface";
+import { Markup, Telegraf } from "telegraf";
+import { IWalletContext } from "../../core/context/IWalletContext";
 
 export default class StartCommand {
-  constructor(private bot: Telegraf<MyContext>) {}
+  constructor(private bot: Telegraf<IWalletContext>) {}
 
-  command(name: string) {
-    this.bot.command(name, (ctx: MyContext) =>
+  command(name: string, text: string) {
+    this.bot.command(name, (ctx: IWalletContext) =>
       ctx.reply(
-        `Your name is ${ctx.session.name}\n Your age is ${ctx.session.age}`
+        text,
+        Markup.keyboard([
+          Markup.button.callback("/show", "SHOW"),
+          Markup.button.callback("/add", "ADD"),
+        ])
       )
     );
   }
